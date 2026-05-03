@@ -1,0 +1,140 @@
+.input-box {
+    text-align: center;
+}
+
+.search-container {
+    margin-top: 10px;
+    position: relative;
+}
+
+.search-container input {
+    margin-bottom: 6px;
+    padding: 12px 45px 12px 15px;
+    border-radius: 25px;
+    border: 2px solid #444;
+    outline: none;
+    width: 250px;
+    transition: 0.3s;
+}
+
+.search-container input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+}
+
+/* Search button inside input */
+.search-btn {
+    position: absolute;
+    right: 3px;
+    top: 44%;
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    border-radius: 50px;
+    padding: 8px 12px;
+    background: var(--accent);
+    border: none;
+    cursor: pointer;
+
+    overflow: hidden;
+    transition: 0.4s ease;
+}
+
+.search-btn .text {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
+    white-space: nowrap;
+}
+
+/* عند الـ hover */
+.search-btn:hover {
+    padding: 8px 18px;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* يظهر النص */
+.search-btn:hover .text {
+    opacity: 1;
+    width: 60px;
+}
+
+.loader {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #444;
+    border-top: 6px solid #00ffcc;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    box-shadow: 0 0 15px #00ffcc;
+}
+
+/* الأنيميشن */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes flip {
+    from {
+        transform: rotateY(0);
+    }
+
+    to {
+        transform: rotateY(180deg);
+    }
+}
+
+/* ================== */
+/* 🎬 Animations */
+/* ================== */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.input-box {
+    animation: fadeUp 1.2s ease forwards;
+}
+
+@media (max-width:265px) {
+    .search-container input {
+        padding: 10px 4px;
+        width: 200px;
+    }
+
+    .search-btn .text {
+        display: none;
+    }
+
+    .search-btn {
+        width: 36px;
+    }
+
+    .search-btn:hover {
+        padding: 8px 8px;
+    }
+}
+
+@media (max-width:233px) {
+    .search-container input {
+        width: 150px;
+    }
+}

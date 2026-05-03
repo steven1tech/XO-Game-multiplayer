@@ -1,0 +1,360 @@
+:root {
+    --bg-color: #0f172a;
+    --font-color: #fff;
+    --primary: #7c3aed;
+    --primary-hover: #5b21b6;
+    --accent: #22c55e;
+    --accent-hover: #2bd96b;
+    --danger: #ef4444;
+    --card: #1e293b;
+    --box-shadow-color: rgba(6, 8, 10, 0.4);
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: var(--font-color);
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: relative;
+}
+
+/* Logo */
+.logo h1 {
+    font-size: 42px;
+    color: #f43f5e;
+    text-shadow: 0 0 10px #f43f5e;
+}
+
+#game {
+    color: #facc15;
+}
+
+/* Reset Button 🔥 */
+#resetbtn,
+#backbtn {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 10px;
+    background: var(--danger);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#resetbtn:hover,
+#backbtn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Main Layout */
+main {
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+#leftBack {
+    position: absolute;
+    margin: 10px;
+    padding: 4px;
+    width: 100px;
+}
+
+#mode {
+    color: #facc15;
+    text-shadow: 0 0 10px #f43f5e;
+    margin-bottom: 12px;
+}
+
+/* Result Box */
+#result {
+    width: 320px;
+    height: 55px;
+    border-radius: 12px;
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    animation: fadeDown 0.8s ease;
+}
+
+#contentres {
+    font-size: 22px;
+}
+
+/* Grid */
+#indexes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+
+    animation: fadeUp 1s ease;
+}
+
+/* Cells */
+.indexempty {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    border: none;
+    font-size: 50px;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+/* Hover 🔥 */
+.indexempty:hover {
+    background: var(--primary-hover);
+    transform: scale(1.08);
+}
+
+/* Click animation */
+.indexempty:active {
+    transform: scale(0.9);
+}
+
+/* لما يتحط X أو O */
+.rotate {
+    animation: flip 0.5s ease;
+    background: var(--accent);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.rotate:hover {
+    background-color: var(--accent-hover);
+    box-shadow: 0px 5px 15px 2px var(--box-shadow-color);
+}
+
+/* Winner glow 🔥 */
+.winner {
+    background: #22c55e !important;
+    box-shadow: 0 0 15px #22c55e;
+}
+
+.draw {
+    background: #dd1515 !important;
+    box-shadow: 0 0 15px #dd1515;
+}
+
+.resultStyleAfterRound {
+    background-color: #e11d48 !important;
+    box-shadow: 0 0 15px #e11d48;
+}
+
+/* Score */
+#showscore {
+    background: var(--card);
+    padding: 10px 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 25px;
+    animation: fadeUp 1.2s ease;
+}
+
+.stringstyle {
+    font-size: 14px;
+}
+
+@keyframes flip {
+    from {
+        transform: rotateY(0);
+    }
+
+    to {
+        transform: rotateY(180deg);
+    }
+}
+
+/* ================== */
+/* 🎬 Animations */
+/* ================== */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pulse عند الفوز */
+@keyframes winPulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.win-animate {
+    animation: winPulse 0.5s ease infinite;
+}
+
+@media(max-width:538px) {
+    #leftBack {
+        top: 85%;
+    }
+}
+
+@media (max-width:395px) {
+    .logo {
+        padding: 0 20px;
+    }
+
+    #resetbtn {
+        padding: 4px 16px;
+    }
+
+    #reset {
+        padding: 20px 30px 0 0;
+    }
+
+    .indexempty {
+        width: 90px;
+        height: 90px;
+        font-size: 50px;
+    }
+
+    .logo {
+        padding-left: 13px;
+    }
+
+    .logo h1 {
+        font-size: 34px;
+    }
+
+    #result {
+        width: 290px
+    }
+
+    #contentres {
+        padding: 8px;
+        font-size: 25px;
+    }
+
+    #mode {
+        font-size: 10px;
+    }
+}
+
+@media (max-width:360px) {
+    .indexempty {
+        width: 75px;
+        height: 75px;
+        font-size: 50px;
+    }
+
+    .logo {
+        padding-left: 10px;
+    }
+
+    .logo h1 {
+        font-size: 30px;
+    }
+
+    #result {
+        width: 242px
+    }
+
+    #contentres {
+        padding: 8px;
+        font-size: 25px;
+    }
+
+    #game {
+        font-size: 25px;
+    }
+
+    #reset {
+        padding: 15px 10px 0 0;
+    }
+
+    #resetbtn {
+        padding: 4px 7px;
+        font-size: 13px;
+    }
+
+    #backbtn {
+        padding: 4px 7px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width:265px) {
+    .indexempty {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+    }
+
+    #result {
+        width: 196px
+    }
+
+    #contentres {
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .logo {
+        padding-left: 7px;
+    }
+
+    .logo h1 {
+        font-size: 20px;
+    }
+    #game{
+        font-size: 20px;
+    }
+}

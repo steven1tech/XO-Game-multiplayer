@@ -1,0 +1,130 @@
+:root {
+    --bg-color: #0f172a;
+    --font-color: #fff;
+    --primary-color: #7c3aed;
+    --primary-hover: #5b21b6;
+    --accent: #22c55e;
+    --danger: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: var(--font-color);
+}
+
+/* Center everything */
+main {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Logo */
+.logo {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.logo h1 {
+    font-size: 48px;
+    color: #f43f5e;
+}
+
+#game {
+    color: #facc15;
+}
+
+/* Question */
+#qtext {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Buttons container */
+.btns {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Buttons */
+button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary-color);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Hover animation 🔥 */
+button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* remove link style */
+button a {
+    color: white;
+    text-decoration: none;
+}
+
+
+/* animation keyframes */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* تطبيق الانيميشن */
+.logo {
+    animation: fadeUp 0.8s ease forwards;
+}
+
+#chooseGLorLC {
+    animation: fadeUp 1s ease forwards;
+}
+
+@media (max-width:263px) {
+    .logo h1 {
+        font-size: 35px;
+    }
+
+    button {
+        width: 70px;
+        font-size: 15px;
+        padding: 10px 10px;
+    }
+
+    #qtext {
+        font-size: 15px;
+    }
+}
+
+@media (max-width:233px) {
+    .search-container input {
+        width: 150px;
+    }
+}
